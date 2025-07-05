@@ -1,0 +1,22 @@
+body {
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+.container-box {
+  width: 100%;
+  max-width: 500px;
+  background-color: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+  height: 50px;
+  object-fit: contain;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Propuesta Inmobiliaria</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <div class="container-box">
+    <!-- Encabezado -->
+    <div class="d-flex align-items-center mb-3">
+      <img src="assets/logo.png" alt="Logo de la empresa" class="logo me-3">
+      <div>
+        <h5 class="mb-0">Nombre de la Empresa</h5>
+        <small class="text-muted">Atendido por: Chan Mendoza</small>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Formulario -->
+    <h4 class="text-center mb-4">Propuesta Inmobiliaria</h4>
+
+    <form id="formulario">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre completo</label>
+        <input type="text" class="form-control" id="nombre" required placeholder="Ej: Juan Pérez">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Indicativo y celular</label>
+        <div class="d-flex gap-2">
+          <select class="form-select w-auto" id="indicativo" required>
+            <option value="57">🇨🇴 +57</option>
+            <option value="52">🇲🇽 +52</option>
+            <option value="54">🇦🇷 +54</option>
+            <option value="56">🇨🇱 +56</option>
+            <option value="1">🇺🇸 +1</option>
+            <option value="34" selected>🇪🇸 +34</option>
+          </select>
+          <input type="tel" class="form-control" id="celular" required pattern="[0-9]{6,12}" maxlength="12" inputmode="numeric" placeholder="Número sin indicativo">
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success w-100 mt-2">Enviar por WhatsApp</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("formulario").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById("nombre").value.trim();
+      const indicativo = document.getElementById("indicativo").value;
+      const celular = document.getElementById("celular").value.trim();
+
+      if (!nombre || !indicativo || !celular.match(/^[0-9]{6,12}$/)) {
+        alert("Por favor completa correctamente todos los campos.");
+        return;
+      }
+
+      const tuNumero = "573197379716";
+      const numeroCompleto = `+${indicativo}${celular}`;
+      const mensaje = `Hola, soy ${nombre} y tengo una propuesta de una casa o apartamento. Mi número es: ${numeroCompleto}`;
+      const url = `https://wa.me/${tuNumero}?text=${encodeURIComponent(mensaje)}`;
+
+      window.open(url, "_blank");
+    });
+  </script>
+
+</body>
+</html>
