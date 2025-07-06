@@ -39,6 +39,8 @@ body {
   background-color: #2c2c2c;
   border-color: #2196f3;
   box-shadow: 0 0 0 0.2rem rgba(33, 150, 243, 0.25);
+  color: #ffffff !important;  /* texto del usuario en blanco */
+  caret-color: #ffffff;       /* cursor también blanco */
 }
 
 /* Etiquetas */
