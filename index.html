@@ -17,7 +17,7 @@
       <img src="assets/logo.png" alt="Logo de la empresa" class="logo me-3">
       <div>
         <h5 class="mb-0">Nombre de la Empresa</h5>
-        <small class="text-muted">Atendido por: Carlos Córdoba</small>
+        <small class="text-muted">Atendido por: <br>Carlos Córdoba</small>
       </div>
     </div>
 
@@ -29,7 +29,10 @@
     <form id="formulario">
       <div class="mb-3">
         <label for="nombre" class="form-label">Nombre completo</label>
-        <input type="text" class="form-control" id="nombre" required placeholder="Escribe tu nombre">
+        <input type="text" class="form-control" id="nombre" required
+               pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" 
+               placeholder="Escribe tu nombre" 
+               title="Solo letras y espacios">
       </div>
 
       <div class="mb-3">
@@ -43,7 +46,10 @@
             <option value="1">🇺🇸 +1</option>
             <option value="34" selected>🇪🇸 +34</option>
           </select>
-          <input type="tel" class="form-control" id="celular" required pattern="[0-9]{6,12}" maxlength="12" inputmode="numeric" placeholder="Número sin indicativo">
+          <input type="tel" class="form-control" id="celular" required 
+                 pattern="[0-9]{6,12}" maxlength="12" inputmode="numeric" 
+                 placeholder="Número sin indicativo" 
+                 title="Solo se permiten números (6 a 12 dígitos)">
         </div>
       </div>
 
@@ -51,27 +57,7 @@
     </form>
   </div>
 
-  <script>
-    document.getElementById("formulario").addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const nombre = document.getElementById("nombre").value.trim();
-      const indicativo = document.getElementById("indicativo").value;
-      const celular = document.getElementById("celular").value.trim();
-
-      if (!nombre || !indicativo || !celular.match(/^[0-9]{6,12}$/)) {
-        alert("Por favor completa correctamente todos los campos.");
-        return;
-      }
-
-      const tuNumero = "573197379716";
-      const numeroCompleto = `+${indicativo}${celular}`;
-      const mensaje = `Hola, soy ${nombre} y tengo una propuesta de una casa o apartamento. Mi número es: ${numeroCompleto}`;
-      const url = `https://wa.me/${tuNumero}?text=${encodeURIComponent(mensaje)}`;
-
-      window.open(url, "_blank");
-    });
-  </script>
-
+  <!-- JavaScript separado -->
+  <script src="js/formulario.js"></script>
 </body>
 </html>
