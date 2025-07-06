@@ -1,5 +1,8 @@
 body {
-  background-color: #f8f9fa;
+  background-color: #0c0c0c;
+  /* fondo muy oscuro */
+  color: #ffffff;
+  /* texto blanco */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,13 +13,66 @@ body {
 .container-box {
   width: 100%;
   max-width: 500px;
-  background-color: white;
+  background-color: #1e1e1e;
+  /* fondo del formulario, ligeramente más claro */
   border-radius: 1rem;
   padding: 2rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
 }
 
 .logo {
   height: 50px;
   object-fit: contain;
+}
+
+/* Campos de entrada personalizados */
+.form-control,
+.form-select {
+  background-color: #2c2c2c;
+  color: #ffffff;
+  border: 1px solid #444;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: #2c2c2c;
+  border-color: #2196f3;
+  box-shadow: 0 0 0 0.2rem rgba(33, 150, 243, 0.25);
+}
+
+/* Etiquetas */
+.form-label {
+  color: #ffffff;
+}
+
+/* Encabezado de empresa */
+.text-muted {
+  color: #cccccc !important;
+}
+
+/* Título del formulario */
+h4,
+h5 {
+  color: #ffffff;
+}
+
+/* Botón de enviar */
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+/* Placeholder gris tenue */
+.form-control::placeholder,
+.form-select::placeholder {
+  color: #969595;
+  /* gris muy claro y tenue */
+  opacity: 0.3;
+  /* para asegurar que el color no se vea más tenue aún */
 }
